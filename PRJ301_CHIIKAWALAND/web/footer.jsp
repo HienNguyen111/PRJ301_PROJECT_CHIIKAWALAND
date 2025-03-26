@@ -47,7 +47,7 @@
     .footer-section p {
         font-size: 0.9rem;
         line-height: 1.5;
-        color: #FFFFFF;
+        color: #333333;
     }
 
     /* Danh sách liên kết */
@@ -61,7 +61,7 @@
     }
 
     .footer-links a {
-        color: #FFFFFF;
+        color: #333333;
         text-decoration: none;
         transition: color 0.3s ease;
     }
@@ -78,7 +78,7 @@
     }
 
     .social-links a {
-        font-size: 1.5rem;
+        font-size: 0.9rem;
         color: #E27D89;
         transition: transform 0.3s ease;
     }
@@ -102,7 +102,7 @@
     <div class="footer-container">
         <div class="footer-section">
             <h3>Về chúng tôi</h3>
-            <p>U u nà nà ú na, u yahaha.</p>
+            <p>Chiikawa là những linh vật đáng yêu dễ thương, hãy mau chóng ghé website này và sở hữu chúng để cùng lan tỏa sự u nà nà ú na nha</p>
         </div>
 
         <div class="footer-section">
@@ -117,9 +117,9 @@
 
         <div class="footer-section">
             <h3>Liên hệ</h3>
-            <p>Địa chỉ: Lô E2a-7, Đường D1, Đ. D1, Long Thạnh Mỹ, Thành Phố Thủ Đức, Hồ Chí Minh 700000</p>
-            <p>Email: toiyeufptk18@fpt.edu.vn</p>
-            <p>Điện thoại: (84) 123-456-666</p>
+            <p>📍 Địa chỉ: Lô E2a-7, Đường D1, Đ. D1, Long Thạnh Mỹ, TP. Thủ Đức</p>
+            <p>💌 Email: toiyeufptk18@fpt.edu.vn</p>
+            <p>📞 Điện thoại: (84) 123-456-789</p>
         </div>
 
         <div class="footer-section">

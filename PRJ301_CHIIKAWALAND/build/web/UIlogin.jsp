@@ -83,9 +83,9 @@
 
         <div class="about-section">
             <h2>Chào mừng đến với Chiikawa Land!</h2>
-            <p>Chiikawa Land là thiên đường dành cho các fan của Chiikawa!</p>
+            <p>Chiikawa Land là thiên đường dành cho các fan của Chiikawa !</p>
             <p>Chúng tôi chuyên cung cấp các sản phẩm liên quan đến Chiikawa như văn phòng phẩm, quần áo, phụ kiện và nhiều hơn thế nữa.</p>
-            <p>Hãy khám phá bộ sưu tập đáng yêu của chúng tôi và mang về những món đồ Chiikawa yêu thích ngay hôm nay!</p>
+            <p>Hãy khám phá bộ sưu tập đáng yêu của chúng tôi và mang về những món đồ Chiikawa yêu thích ngay hôm nay !</p>
         </div>
 
         <img src="assets/images/chi_pc.jpg" class="fullscreen"/>

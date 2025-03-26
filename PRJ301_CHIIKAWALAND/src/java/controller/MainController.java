@@ -2,12 +2,11 @@ package controller;
 
 
 import dao.ProductDAO;
+import dao.UserDAO;
 import dto.ProductDTO;
 import dto.UserDTO;
 import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,9 +20,47 @@ import utils.AuthUtils;
 public class MainController extends HttpServlet {
 
     private ProductDAO pdao = new ProductDAO();
+    private UserDAO udao = new UserDAO();
 
     private static final String WELCOME = "UIlogin.jsp";
+    private static final String REGISTER = "register.jsp";
+    
+    
+    private String processRegister(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException{
+        String url = WELCOME;
+        
+        try {
+                boolean checkError = false;
+                
+                String userID = request.getParameter("txtUserID");
+                String fullName = request.getParameter("txtFullName");
+                String password = request.getParameter("txtPassword");
 
+                if (password.length() < 6) {
+                    checkError = true;
+                    request.setAttribute("error_Password","Password must be at least 6 characters long !");
+                }
+
+                UserDTO udto = new UserDTO(userID, fullName, "US", password);
+                
+                UserDTO existingUser = udao.readById(userID);
+                if(existingUser != null){
+                    request.setAttribute("error_Register", "User ID already exists !");
+                    url = REGISTER;
+                }
+                if (!checkError) {
+                    udao.create(udto);
+                    url = WELCOME;
+                } else {
+                    url = REGISTER;
+                }
+            } catch (Exception e) {
+                 e.printStackTrace();
+            }      
+        return url;
+    }
+    
     private String processLogin(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = WELCOME;
@@ -186,7 +223,9 @@ public class MainController extends HttpServlet {
         //
         return url;
     }
-        private String processUpdate(HttpServletRequest request, HttpServletResponse response)
+    
+    
+    private String processUpdate(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = WELCOME;
         //
@@ -239,6 +278,7 @@ public class MainController extends HttpServlet {
                     url = "productForm.jsp";
                     request.setAttribute("product", product);
                 }
+                
             } catch (Exception e) {
                 e.printStackTrace(); 
             }
@@ -248,17 +288,11 @@ public class MainController extends HttpServlet {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
     // Main
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         String url = WELCOME;
         try {
@@ -267,7 +301,9 @@ public class MainController extends HttpServlet {
             if (action == null) {
                 url = WELCOME;
             } else {
-                if (action.equals("login")) {
+                if (action.equals("register")) {
+                    url = processRegister(request, response)    ;
+                } else if (action.equals("login")) {
                     url = processLogin(request, response);
                 } else if (action.equals("logout")) {
                     url = processLogout(request, response);
@@ -279,7 +315,7 @@ public class MainController extends HttpServlet {
                     url = processAdd(request, response);
                 } else if (action.equals("edit")) {
                     url = processEdit(request, response);
-                    // Sau khi edit thêm thông tin thì update
+                // Sau khi edit thêm thông tin thì update
                 } else if (action.equals("update")) {
                     url = processUpdate(request, response);
                 }

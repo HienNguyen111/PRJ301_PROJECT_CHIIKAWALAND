@@ -324,14 +324,16 @@
                 </h1>
                 
                 <form action="MainController" method="post">
-                    <input type="hidden" name="action" value="add"/>
+                    <input type="hidden" name="action" value="<%=action%>"/>
 
                     <div class="form-group">
                         <label for="txtProductID">Product ID:</label>
-                        <input type="text" id="txtProductID" name="txtProductID" value="<%= p.getProductID() %>" <%= (p.getProductID() != null && !p.getProductID().isEmpty()) ? "readonly" : "" %> />
-                        <% if (!txtProductID_error.isEmpty()) {%>
-                        <div class="error-message"><%=txtProductID_error%></div>
-                        <% }%>
+                        <input type="text" id="txtProductID" name="txtProductID" 
+                               value="<%= (p != null && p.getProductID() != null) ? p.getProductID() : "" %>" 
+                               <%= (p != null && p.getProductID() != null && !p.getProductID().isEmpty()) ? "readonly" : "" %> />
+                        <% if (txtProductID_error != null && !txtProductID_error.isEmpty()) { %>
+                            <div class="error-message"><%= txtProductID_error %></div>
+                        <% } %>
                     </div>
 
                     <div class="form-group">
@@ -354,11 +356,11 @@
                         <label for="txtCategory">Category:</label>
                         <select name="txtCategory" id="txtCategory">
                             <option value=""> Choose... </option>
-                            <option value="Clothing" <%= (p != null && "Clothing".equals(p.getCategory())) ? "selected" : "" %>> Clothing </option>
-                            <option value="Toys" <%= (p != null && "Toys".equals(p.getCategory())) ? "selected" : "" %>> Toys </option>
-                            <option value="Phone Cases" <%= (p != null && "Phone Cases".equals(p.getCategory())) ? "selected" : "" %>> Phone Cases </option>
-                            <option value="Stationery" <%= (p != null && "Stationery".equals(p.getCategory())) ? "selected" : "" %>> Stationery </option>
-                            <option value="Other" <%= (p != null && "Other".equals(p.getCategory())) ? "selected" : "" %>> Other </option>
+                            <option value="Quần áo" <%= (p != null && "Quần áo".equals(p.getCategory())) ? "selected" : "" %>> Quần áo </option>
+                            <option value="Đồ chơi" <%= (p != null && "Đồ chơi".equals(p.getCategory())) ? "selected" : "" %>> Đồ chơi </option>
+                            <option value="Ốp điện thoại" <%= (p != null && "Ốp điện thoại".equals(p.getCategory())) ? "selected" : "" %>> Ốp điện thoại </option>
+                            <option value="Văn phòng phẩm" <%= (p != null && "Văn phòng phẩm".equals(p.getCategory())) ? "selected" : "" %>> Văn phòng phẩm </option>
+                            <option value="Liinh Tiinh" <%= (p != null && "Liinh Tiinh".equals(p.getCategory())) ? "selected" : "" %>> Liinh Tiinh </option>
                         </select>
                         <% if (txtCategory_error != null && !txtCategory_error.isEmpty()) { %>
                             <div class="error-message"><%=txtCategory_error%></div>

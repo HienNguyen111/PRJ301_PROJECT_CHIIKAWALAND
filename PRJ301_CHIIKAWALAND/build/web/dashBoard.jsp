@@ -160,6 +160,7 @@
                 color: #333;
                 margin: 0 10px;
             }
+           
 
             /* Responsive design */
             @media screen and (max-width: 600px) {
@@ -172,6 +173,7 @@
                     padding: 8px 10px;
                 }
             }
+            
         </style> 
     </head>
     <body> 
@@ -182,7 +184,7 @@
                     UserDTO user = (UserDTO) session.getAttribute("user");
             %>
 
-
+            
             <%
                 String searchTerm = request.getAttribute("searchTerm") + "";
                 searchTerm = searchTerm.equals("null") ? "" : searchTerm;
@@ -190,9 +192,9 @@
             <div class="search-section">
                 <form action="MainController">
                     <input type="hidden" name="action" value="search"/>
-                    <label for="searchInput">Search Products:</label>
-                    <input type="text" id="searchInput" name="searchTerm" value="<%=searchTerm%>" class="search-input" placeholder="Enter product title..."/>
-                    <input type="submit" value="Search" class="search-btn"/>
+                    <label for="searchInput">Tìm sản phẩm:</label>
+                    <input type="text" id="searchInput" name="searchTerm" value="<%=searchTerm%>" class="search-input" placeholder="Hãy nhập vào đây..."/>
+                    <input type="submit" value="Tìm kiếm" class="search-btn"/>
                 </form>
             </div>
 
@@ -200,7 +202,7 @@
             <% if (AuthUtils.isAdmin(session)) { %>
             <a href="productForm.jsp" style="display: inline-flex; align-items: center; text-decoration: none; margin-left: 20px; padding: 10px 20px; background-color: #8BF8AD; color: white; border-radius: 5px; font-weight: bold; transition: 0.3s;">
                 <img src="assets/images/action/Add.png" style="height: 20px; margin-right: 8px;">
-                Add New Product
+                Thêm sản phẩm
             </a>
             <% } %>
 
@@ -290,6 +292,8 @@
             You do not have permission to access this content.
             <%}%>
         </div>
+        
         <jsp:include page="footer.jsp"/>
+        
     </body>
 </html>

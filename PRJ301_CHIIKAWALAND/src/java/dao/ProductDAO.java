@@ -67,8 +67,8 @@ public class ProductDAO implements IDAO<ProductDTO, String> {
     @Override
     public boolean update(ProductDTO entity) {
         String sql = "UPDATE tblProducts SET "
-                + " Title = ?, Brand = ?, Category = ?, Price =? , Quantity = ?, Image = ? "
-                + " WHERE ProductID = ?";
+                + " Title = ?, Brand = ?, Category = ?, Price = ? , Quantity = ?, Image = ? "
+                + " WHERE ProductID = ? ";
         try {
             Connection conn = DBUtils.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -79,6 +79,7 @@ public class ProductDAO implements IDAO<ProductDTO, String> {
                 ps.setInt(5, entity.getQuantity());
                 ps.setString(6, entity.getImage());
                 ps.setString(7, entity.getProductID());
+                
             int i = ps.executeUpdate();
             return i > 0;
         } catch (Exception e) {
@@ -86,6 +87,7 @@ public class ProductDAO implements IDAO<ProductDTO, String> {
         }
         return false;
     }
+    
 
     @Override
     public boolean delete(String id) {
