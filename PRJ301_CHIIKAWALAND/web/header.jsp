@@ -160,16 +160,16 @@
 
     <div class="container">
         <nav class="nav">
-            <a href="#" class="text_logo">Chiikawa Land</a>
+            <a href="UIlogin.jsp" class="text_logo">Chiikawa Land</a>
 
             <ul class="menu">
                 <li class="menu-item"><a href="#">Trang chủ</a></li>
                 <li class="menu-item"><a href="#">|</a></li>
                 <li class="menu-item"><a href="#">Sản phẩm</a></li>
                 <li class="menu-item"><a href="#">|</a></li>
-                <li class="menu-item"><a href="#">Giỏ hàng</a></li>
+                <li class="menu-item"><a href="#">Danh mục</a></li>
                 <li class="menu-item"><a href="#">|</a></li>
-                <li class="menu-item"><a href="#">Đăng nhập</a></li>
+                <li class="menu-item"><a href="#">Giỏ hàng</a></li>
                 <li class="menu-item"><a href="#">|</a></li>
                 <li class="menu-item"><a href="#">Liên hệ</a></li>
             </ul>
@@ -197,7 +197,7 @@
 
 
     <audio id="myAudio">
-        <source src="assets/music/music" type="audio/mpeg">
+        <source src="assets/music/song.mp3" type="audio/mpeg">
     </audio>
 
 
